@@ -40,8 +40,9 @@ export class EmployeeListComponent implements OnInit {
     private router: Router
   ) {}
 
-  openPopupDelete() {
+  openPopupDelete(event) {
     this.confirmationService.confirm({
+      target: event.target,
       message: "Are you sure that you want to delete?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
@@ -149,14 +150,14 @@ export class EmployeeListComponent implements OnInit {
     }
   }
 
-  openModal(employee: Employee, mode: string): void {
+  openModal(employee: Employee, mode: string, event?: any): void {
     if (mode === "add") {
       this.employeeForm.reset();
       this.displayAddDialog = true;
     }
     if (mode === "delete") {
       this.employeeId = employee.id;
-      this.openPopupDelete();
+      this.openPopupDelete(event);
     }
     if (mode === "edit") {
       this.employeeId = employee.id;

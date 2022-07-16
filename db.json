@@ -31,33 +31,53 @@
           "id": 3,
           "startingPoint": "22/04/202222",
           "arrivalPoint": "24/04/2022",
-          "statuts": "actif",
-          "meansOfTransport": "car"
-        },
-        {
-          "id": 4,
-          "startingPoint": "06/01/20222",
-          "arrivalPoint": "10/01/2022",
-          "statuts": "actif",
-          "meansOfTransport": "train",
+          "status": "actif",
+          "meansOfTransport": "car",
+          "country": "Niger",
+          "comission": "36,738",
           "positions": {
             "x": "40.748817",
             "y": "-73.985428"
           }
         },
         {
+          "id": 4,
+          "startingPoint": "06/01/20222",
+          "arrivalPoint": "10/01/2022",
+          "status": "actif",
+          "meansOfTransport": "train",
+          "positions": {
+            "x": "40.748817",
+            "y": "-73.985428"
+          },
+          "country": "Spain",
+          "comission": "50,738"
+        },
+        {
           "id": 6,
           "startingPoint": "10/08/2022",
           "arrivalPoint": "15/08/2022",
-          "statuts": "en cours",
-          "meansOfTransport": "Airplane"
+          "status": "en cours",
+          "meansOfTransport": "Airplane",
+          "country": "Cuba",
+          "comission": "10,738",
+          "positions": {
+            "x": "40.748817",
+            "y": "-73.985428"
+          }
         },
         {
           "id": 7,
           "startingPoint": "10/06/2022",
           "arrivalPoint": "16/06/2022",
-          "statuts": "en cours",
-          "meansOfTransport": "Ship"
+          "status": "en cours",
+          "meansOfTransport": "Ship",
+          "country": "Japan",
+          "comission": "36,738",
+          "positions": {
+            "x": "40.748817",
+            "y": "-73.985428"
+          }
         }
       ]
     }

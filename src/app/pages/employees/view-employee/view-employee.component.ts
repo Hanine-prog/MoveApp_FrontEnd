@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Router,
+} from "@angular/router";
 import { Avatar } from "primeng/avatar";
 import { Employee } from "src/app/models/employee.model";
 import { EmployeesService } from "src/app/services/employees.service";
@@ -20,6 +24,7 @@ export class ViewEmployeeComponent implements OnInit {
   employee: Employee;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private employeeService: EmployeesService
   ) {}
@@ -43,5 +48,9 @@ export class ViewEmployeeComponent implements OnInit {
       .subscribe((employee) => {
         this.employee = employee;
       });
+  }
+
+  viewLocation(location) {
+    this.router.navigate(["maps"]);
   }
 }

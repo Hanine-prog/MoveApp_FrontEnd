@@ -1,3 +1,5 @@
+import { Deplacement } from "./deplacement.model";
+
 export class Employee {
   id: number;
   firstName: string;
@@ -5,4 +7,6 @@ export class Employee {
   grade: string;
   matricule: string;
   email: string;
+  image: string;
+  deplacements?: Deplacement[];
 }

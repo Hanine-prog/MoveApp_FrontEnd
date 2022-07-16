@@ -16,7 +16,7 @@
                     <th>Country</th>
                     <th>City</th>
                     <th class="text-center">Comission</th>
-                    <th class="text-center">Statuts</th>
+                    <th class="text-center">status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -88,7 +88,7 @@
                         {{ Deplacement?.arrivalPoint }}
                       </li>
                       <li class="list-group-item">
-                        {{ Deplacement?.statuts }}
+                        {{ Deplacement?.status }}
                       </li>
                       <li class="list-group-item">
                         {{ Deplacement?.meansOfTransport }}
@@ -173,14 +173,14 @@
                 <div class="form-group p-float-label deplacement-form-item">
                   <input
                     type="text"
-                    formControlName="statuts"
-                    name="statuts"
+                    formControlName="status"
+                    name="status"
                     class="form-control"
-                    id="statuts"
+                    id="status"
                     aria-describedby="emailHelp"
                     pInputText
                   />
-                  <label for="matricule">Statuts</label>
+                  <label for="matricule">status</label>
                 </div>
                 <div class="form-group p-float-label deplacement-form-item">
                   <input
@@ -246,14 +246,14 @@
                 <div class="form-group p-float-label deplacement-form-item">
                   <input
                     type="text"
-                    formControlName="statuts"
-                    name="statuts"
+                    formControlName="status"
+                    name="status"
                     class="form-control"
-                    id="statuts"
+                    id="status"
                     aria-describedby="emailHelp"
                     pInputText
                   />
-                  <label for="matricule">Statuts</label>
+                  <label for="matricule">status</label>
                 </div>
                 <div class="form-group p-float-label deplacement-form-item">
                   <input

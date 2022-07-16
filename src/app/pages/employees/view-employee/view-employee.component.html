@@ -168,79 +168,86 @@
         </div>
         <p-tabView>
           <p-tabPanel header="Information">
-            <p class="description text-center">{{ employee?.matricule }}</p>
+            <!-- <p class="description text-center">{{ employee?.matricule }}</p>
             <p class="description text-center">
               As a {{ employee?.grade }} of Vermeg's Crew
               <br />
               U can join me on
               <br />
               {{ employee?.email }} for more details.
-            </p>
+            </p> -->
+
+            <div class="row">
+              <div class="col">
+                <div style="margin-bottom: 2em">
+                  <div class="title">Matricule</div>
+                  <div>{{ employee?.matricule }}</div>
+                </div>
+                <div>
+                  <div class="title">Grade</div>
+                  <div>{{ employee?.grade }}</div>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  <div class="title">Email</div>
+                  <div>{{ employee?.email }}</div>
+                </div>
+              </div>
+            </div>
           </p-tabPanel>
 
           <p-tabPanel header="Trips"
             ><div class="card-body">
-              <div class="table-responsive">
+              <div
+                class="table-responsive"
+                *ngIf="
+                  employee?.deplacements && employee?.deplacements?.length > 0;
+                  else noDeplacementFound
+                "
+              >
                 <table class="table tablesorter" id="">
                   <thead class="text-primary">
                     <tr>
-                      <th>Name</th>
                       <th>Country</th>
-                      <th>Means of transport</th>
+                      <th>Start Date</th>
+                      <th>Finish Date</th>
                       <th class="text-center">Comission</th>
-                      <th class="text-center">Statuts</th>
+                      <th class="text-center">status</th>
+                      <th class="text-center">Means Of Transport</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Hanine Hammami</td>
-                      <td>Niger</td>
-                      <td>Plane</td>
-                      <td class="text-center">$36,738</td>
-                      <td class="text-center">Trip completed</td>
-                    </tr>
-
-                    <tr>
-                      <div
-                        class="button-container"
-                        class="fa-solid fa-location-dot"
-                      >
+                    <tr *ngFor="let deplacement of employee?.deplacements">
+                      <td>{{ deplacement?.country }}</td>
+                      <td>{{ deplacement?.startingPoint }}</td>
+                      <td>{{ deplacement?.arrivalPoint }}</td>
+                      <td class="text-center">${{ deplacement?.comission }}</td>
+                      <td class="text-center">{{ deplacements?.status }}</td>
+                      <td class="text-center">
+                        {{ deplacement?.meansOfTransport }}
+                      </td>
+                      <td>
                         <button
-                          href="#"
-                          class="btn btn-neutral btn-icon btn-round btn-lg"
-                          class="fa-solid fa-location-dot"
-                        >
-                          <hr />
-                          <!-- <div class="button-container">
-                        <button
-                          href="#"
-                          class="btn btn-neutral btn-icon btn-round btn-lg"
-                        >
-                          <i class="fab fa-facebook-f"></i>
-                        </button>
-                        <button
-                          href="#"
-                          class="btn btn-neutral btn-icon btn-round btn-lg"
-                        >
-                          <i class="fab fa-twitter"></i>
-                        </button>
-                        <button
-                          href="#"
-                          class="btn btn-neutral btn-icon btn-round btn-lg"
-                        >
-                          <i class="fab fa-google-plus-g"></i>
-                        </button>
-                      </div> -->
-                        </button>
-                      </div>
+                          pButton
+                          pRipple
+                          icon="pi pi-map-marker"
+                          class="p-button-rounded p-button-success p-mr-2"
+                          (click)="viewLocation(deplacement?.location)"
+                        ></button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div></p-tabPanel
-          ></p-tabView
-        >
+            </div> </p-tabPanel
+        ></p-tabView>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #noDeplacementFound>
+  <h3 class="text-center">No Trips Planned</h3>
+</ng-template>

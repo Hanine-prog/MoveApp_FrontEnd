@@ -38,6 +38,8 @@ import { SpeedDialModule } from "primeng/speeddial";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { TabViewModule } from "primeng/tabview";
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
+import {ToolbarModule} from 'primeng/toolbar';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -64,6 +66,8 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
     ListboxModule,
     SpeedDialModule,
     TabViewModule,
+    ToolbarModule,
+    TableModule,
 
     ToastrModule.forRoot(),
   ],

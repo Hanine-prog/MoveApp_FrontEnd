@@ -46,7 +46,7 @@ export class DeplacementComponent implements OnInit {
   deplacementForm = new FormGroup({
     startingPoint: new FormControl(""),
     arrivalPoint: new FormControl(""),
-    statuts: new FormControl(""),
+    status: new FormControl(""),
     meansOfTransport: new FormControl(""),
   });
 
@@ -226,7 +226,7 @@ export class DeplacementComponent implements OnInit {
           -1 ||
         deplacement.arrivalPoint.toLowerCase().indexOf(key.toLowerCase()) !==
           -1 ||
-        deplacement.statuts.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        deplacement.status.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
         deplacement.meansOfTransport
           .toLowerCase()
           .indexOf(key.toLowerCase()) !== -1
