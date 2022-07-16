@@ -1,0 +1,246 @@
+<!-- <div class="custom-skeleton p-p-4">
+  <div class="card">
+    <div class="p-d-flex p-mb-3" class="fa-solid fa-user-tie">
+      <p-skeleton shape="circle" size="4rem" styleClass="p-mr-2"> </p-skeleton>
+
+      <div class="info">
+        <h4>{{ employee?.firstName }} {{ employee?.lastName }}</h4>
+        <h6 class="description">{{ employee?.matricule }}</h6>
+      </div>
+
+      <div class="p-d-flex p-jc-between p-mt-3">
+        <h6 class="about">
+          As a {{ employee?.grade }} of Vermeg's Crew U can join me on
+          {{ employee?.email }} for more details.
+        </h6>
+        <div class="sizes">
+          <p-button
+            label=""
+            icon="pi pi-check"
+            styleClass="p-button-sm"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- new view -->
+
+<!-- <div class="row">
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="card-body">
+        <div class="author">
+          <a href="#">
+            <img class="avatar border-gray" src="" alt="..." />
+            //<img alt="..." class="avatar" src="" />
+            <h5 class="title">
+              {{ employee?.firstName }} {{ employee?.lastName }}
+            </h5>
+          </a>
+          <p class="description">{{ employee?.email }}</p>
+          <p>{{ employee?.matricule }}</p>
+        </div>
+        <p class="description text-center">
+          As a "{{ employee?.grade }}" u coin join me on
+          <br />
+          <br />
+          {{ employee?.email }} for more details
+        </p>
+      </div>
+      <div class="card-footer">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        <i class="fa fa-github" aria-hidden="true"></i>
+
+        <hr />
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="content">
+  <!-- <main class="profile-page">
+    <section style="height: 500px">
+      <div
+        class="bg-center bg-cover"
+        style="
+          background-image: url('https://cdnfr.africanmanager.com/wp-content/uploads/2020/04/maxresdefault-1.jpg');
+        "
+      >
+        <span id="blackOverlay" class=""></span>
+      </div>
+      <div
+        class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+        style="height: 70px"
+      >
+        <svg
+          class="absolute bottom-0 overflow-hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          version="1.1"
+          viewBox="0 0 2560 100"
+          x="0"
+          y="0"
+        >
+          <polygon
+            class="text-gray-300 fill-current"
+            points="2560 0 2560 100 0 100"
+          ></polygon>
+        </svg>
+      </div>
+    </section>
+    <section class="">
+      <div class="">
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <p-skeleton
+                    shape="circle"
+                    size="4rem "
+                    margin-left="15rem"
+                    styleClass="p-mr-2"
+                  >
+                  </p-skeleton>
+                </div>
+              </div>
+              <div class=""></div>
+            </div>
+            <div class="">
+              <h3 class="">
+                {{ employee?.firstName }} {{ employee?.lastName }}
+              </h3>
+              <div class="">
+                <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
+                {{ employee?.grade }}
+              </div>
+
+              <div class="mb-2 text-gray-700">
+                <i class="fas fa-university mr-2 text-lg text-gray-500"></i
+                >{{ employee?.email }}
+              </div>
+            </div>
+            <div class="mt-10 py-10 border-t border-gray-300 text-center">
+              <div class="flex flex-wrap justify-center">
+                <div class="w-full lg:w-9/12 px-4">
+                  <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                    As a {{ employee?.grade }} of Vermeg's Crew U can join me on
+                    {{ employee?.email }} for more details.
+                  </p>
+                  <a href="#pablo" class="font-normal text-pink-500"
+                    >Show more</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main> -->
+
+  <div>
+    <div class="card card-user">
+      <div class="image" style="height: 200px">
+        <img
+          src="https://cdnfr.africanmanager.com/wp-content/uploads/2020/04/maxresdefault-1.jpg"
+          alt="..."
+          style="object-fit: cover; height: 100%; width: 100vw"
+        />
+      </div>
+      <div class="card-body" style="min-height: 320px">
+        <div
+          class="author"
+          style="position: absolute; z-index: 10; top: 10em; right: 43%"
+        >
+          <a href="#">
+            <img
+              class="avatar border-gray"
+              src="../assets/img/hanine.jpg"
+              alt="..."
+            />
+            <h5 class="title">
+              {{ employee?.firstName }} {{ employee?.lastName }}
+            </h5>
+          </a>
+        </div>
+        <p-tabView>
+          <p-tabPanel header="Information">
+            <p class="description text-center">{{ employee?.matricule }}</p>
+            <p class="description text-center">
+              As a {{ employee?.grade }} of Vermeg's Crew
+              <br />
+              U can join me on
+              <br />
+              {{ employee?.email }} for more details.
+            </p>
+          </p-tabPanel>
+
+          <p-tabPanel header="Trips"
+            ><div class="card-body">
+              <div class="table-responsive">
+                <table class="table tablesorter" id="">
+                  <thead class="text-primary">
+                    <tr>
+                      <th>Name</th>
+                      <th>Country</th>
+                      <th>Means of transport</th>
+                      <th class="text-center">Comission</th>
+                      <th class="text-center">Statuts</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Hanine Hammami</td>
+                      <td>Niger</td>
+                      <td>Plane</td>
+                      <td class="text-center">$36,738</td>
+                      <td class="text-center">Trip completed</td>
+                    </tr>
+
+                    <tr>
+                      <div
+                        class="button-container"
+                        class="fa-solid fa-location-dot"
+                      >
+                        <button
+                          href="#"
+                          class="btn btn-neutral btn-icon btn-round btn-lg"
+                          class="fa-solid fa-location-dot"
+                        >
+                          <hr />
+                          <!-- <div class="button-container">
+                        <button
+                          href="#"
+                          class="btn btn-neutral btn-icon btn-round btn-lg"
+                        >
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button
+                          href="#"
+                          class="btn btn-neutral btn-icon btn-round btn-lg"
+                        >
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                        <button
+                          href="#"
+                          class="btn btn-neutral btn-icon btn-round btn-lg"
+                        >
+                          <i class="fab fa-google-plus-g"></i>
+                        </button>
+                      </div> -->
+                        </button>
+                      </div>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div></p-tabPanel
+          ></p-tabView
+        >
+      </div>
+    </div>
+  </div>
+</div>

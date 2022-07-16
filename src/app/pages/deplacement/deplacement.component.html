@@ -1,0 +1,302 @@
+<!-- Search Bar-->
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header">
+            <h4 class="card-title">Vermeg's crew trips</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter" id="">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th class="text-center">Comission</th>
+                    <th class="text-center">Statuts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hanine Hammami</td>
+                    <td>Niger</td>
+                    <td>Oud-Turnhout</td>
+                    <td class="text-center">$36,738</td>
+                    <td class="text-center">Trip completed</td>
+                  </tr>
+                  <tr>
+                    <td>Oussema Gabtni</td>
+                    <td>Netherlands</td>
+                    <td>Baileux</td>
+                    <td class="text-center">$23,789</td>
+                    <td class="text-center">Request awaiting documents</td>
+                  </tr>
+
+                  <tr>
+                    <td>Ahmed Ben Mansour</td>
+                    <td>Korea, South</td>
+                    <td>Overland Park</td>
+                    <td class="text-center">$38,735</td>
+                    <td class="text-center">Trip completed</td>
+                  </tr>
+
+                  <tr>
+                    <td>Khalil khaled</td>
+                    <td>Portugal</td>
+                    <td>Gloucester</td>
+                    <td class="text-center">$78,615</td>
+                    <td class="text-center">Request recorded</td>
+                  </tr>
+                  <tr>
+                    <td>Aziz Louzir</td>
+                    <td>France</td>
+                    <td>Paris</td>
+                    <td class="text-center">$98,615</td>
+                    <td class="text-center">Trip completed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- new card -->
+      <div class="content">
+        <div class="container" id="main-container">
+          <div class="input-group"></div>
+          <div class="row">
+            <div
+              *ngFor="let Deplacement of deplacements"
+              class="col-md-6 col-xl-3"
+            >
+              <div class="card m-b-30">
+                <div class="card-body row">
+                  <div class="card" style="width: 20rem">
+                    <img
+                      src="https://media-cdn.tripadvisor.com/media/photo-s/18/4f/7d/fc/caption.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        {{ Deplacement?.startingPoint }}
+                      </li>
+                      <li class="list-group-item">
+                        {{ Deplacement?.arrivalPoint }}
+                      </li>
+                      <li class="list-group-item">
+                        {{ Deplacement?.statuts }}
+                      </li>
+                      <li class="list-group-item">
+                        {{ Deplacement?.meansOfTransport }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="float-right btn-group btn-group-sm">
+                      <a
+                        (click)="openModal(Deplacement, 'edit')"
+                        class="btn btn-secondary tooltips"
+                        data-placement="top"
+                        data-original-title="Edit"
+                        ><i class="fa fa-pencil" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        (click)="openModal(Deplacement, 'delete', $event)"
+                        class="btn btn-secondary tooltips"
+                        data-placement="top"
+                        data-original-title="Delete"
+                        ><i class="fa fa-times"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- dialogs -->
+
+            <p-confirmPopup></p-confirmPopup>
+            <p-toast></p-toast>
+            <!-- Edit Deplacement -->
+            <p-dialog
+              header="Edit deplacement"
+              [(visible)]="displayEditDialog"
+              [style]="{ width: '50vw' }"
+              [baseZIndex]="10000"
+            >
+              <p-listbox
+                [options]="countries"
+                [(ngModel)]="selectedCountries"
+                [metaKeySelection]="false"
+                [checkbox]="true"
+                [filter]="true"
+                [multiple]="true"
+                optionLabel="name"
+                [listStyle]="{ 'max-height': '200px' }"
+                [style]="{ width: '10rem' }"
+              >
+                <ng-template let-country pTemplate="item">
+                  <div class="country-item">
+                    <div>{{ country.name }}</div>
+                  </div>
+                </ng-template>
+              </p-listbox>
+              <form [formGroup]="deplacementForm" class="deplacement-form">
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="startingPoint"
+                    name="firstName"
+                    class="form-control"
+                    id="startingPoint"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="firstName">Starting Point</label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="arrivalPoint"
+                    name="arrivalPoint"
+                    class="form-control"
+                    id="arrivalPoint"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="lastName">Arrival Point</label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="statuts"
+                    name="statuts"
+                    class="form-control"
+                    id="statuts"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="matricule">Statuts</label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="meansOfTransport"
+                    name="meansOfTransport"
+                    class="form-control"
+                    id="meansOfTransport"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="grade">Means Of transport</label>
+                </div>
+              </form>
+
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="editDeplacement()"
+                  label="Edit"
+                ></p-button>
+                <p-button
+                  icon="pi pi-times"
+                  (click)="displayDialog = false"
+                  label="No"
+                  styleClass="p-button-text"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- Add Deplacement -->
+            <p-dialog
+              header="Add Deplacement"
+              [(visible)]="displayAddDialog"
+              [style]="{ width: '50vw' }"
+              [baseZIndex]="10000"
+            >
+              <form [formGroup]="deplacementForm" class="deplacement-form">
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="startingPoint"
+                    name="startingPoint"
+                    class="form-control"
+                    id="startingPoint"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="firstName">Starting Point </label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="arrivalPoint"
+                    name="arrivalPoint"
+                    class="form-control"
+                    id="arrivalPoint"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="lastName">Arrival Point</label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="statuts"
+                    name="statuts"
+                    class="form-control"
+                    id="statuts"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="matricule">Statuts</label>
+                </div>
+                <div class="form-group p-float-label deplacement-form-item">
+                  <input
+                    type="text"
+                    formControlName="meansOfTransport"
+                    name="meansOfTransport"
+                    class="form-control"
+                    id="meansOfTransport"
+                    aria-describedby="emailHelp"
+                    pInputText
+                  />
+                  <label for="grade">Means of transport </label>
+                </div>
+              </form>
+
+              <ng-template pTemplate="footer">
+                <p-button
+                  icon="pi pi-check"
+                  (click)="createDeplacement()"
+                  label="Add"
+                ></p-button>
+                <p-button
+                  icon="pi pi-times"
+                  (click)="displayaddDialog = false"
+                  label="Cancel"
+                  styleClass="p-button-text"
+                ></p-button>
+              </ng-template>
+            </p-dialog>
+
+            <!-- end of dialogs -->
+
+            <div class="example-button-container">
+              <p-button
+                icon="pi pi-plus"
+                (click)="openModal(null, 'add')"
+                label="Add Deplacement"
+                styleClass="p-button-text"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

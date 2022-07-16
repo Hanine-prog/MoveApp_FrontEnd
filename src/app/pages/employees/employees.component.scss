@@ -1,0 +1,153 @@
+.container {
+  padding: 100px;
+}
+.example-button-container {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+.employee-form {
+  padding: 2em 0;
+  &-item {
+    font-size: 15px;
+  }
+}
+.search-input {
+  color: #222;
+}
+.header {
+  background-color: #fac9da;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.form-control {
+  color: #222;
+}
+.form-outline {
+  width: 100%;
+}
+#search-button {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 0;
+  background: transparent;
+  margin: 0;
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.list-group-item {
+  color: #e14eca;
+}
+
+.list-group-item {
+  color: #874400;
+}
+
+#search-input {
+  border-right: 1px solid #2b3553;
+  &:focus {
+    border-right-color: #e14eca;
+  }
+}
+.search-bar {
+  background-color: #222;
+}
+.search-bar * {
+  color: white !important;
+}
+.search-bar {
+  padding-left: none;
+}
+.search-bar input {
+  border-bottom-color: white;
+}
+.md-errors-spacer {
+  display: none;
+}
+.employee-form {
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.249999625rem + 2px);
+}
+.modal-body {
+  background-color: #fac9da;
+  width: 100%;
+  display: block;
+}
+:host ::ng-deep .p-dialog .p-dialog-content h2 {
+  color: #222;
+}
+
+.employees-list {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10%;
+}
+
+// new card styles
+
+:host {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.card p {
+  color: black;
+}
+.card {
+  width: 341px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 31px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border: 4px solid #fff;
+}
+.p-speeddial-button.p-button.p-button-icon-only {
+  width: 4rem;
+  height: 4rem;
+  margin-left: 17rem !important;
+}
+.card-body {
+  /* display: grid;
+  place-items: center; */
+  margin-top: 20px;
+}

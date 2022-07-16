@@ -1,0 +1,310 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor02"
+    aria-controls="navbarColor02"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="openModal(null, 'add')"></a>
+        Employees <span class="sr-only">(current)</span>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        type="search"
+        (ngModelChange)="searchEmployees(key.value)"
+        #key="ngModel"
+        ngModel
+        name="key"
+        id="searchName"
+        class="form-control mr-sm-2"
+        placeholder="Search employees..."
+        required
+      />
+    </form>
+  </div>
+</nav>
+
+<!--END Search Bar-->
+<!-- Add button -->
+<div class="content" style="position: relative; height: calc(100vh - 70px)">
+  <div class="example-button-container">
+    <p-button
+      icon="pi pi-plus"
+      (click)="openModal(null, 'add')"
+      label="Add Employee"
+      styleClass="p-button-text"
+    ></p-button>
+  </div>
+  <!-- end btn -->
+  <!-- <div class="card m-b-30">
+        <div class="card-body row">
+          <div class="col-6 card-title align-self-center mb-0">
+            <h5>{{ employee?.firstName }}</h5>
+            <p class="m-0">{{ employee?.lastName }}</p>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="fa-solid fa-grip-lines"></i>{{ employee?.grade }}
+          </li>
+          <li class="list-group-item">
+            <i class=""></i>Matricule :
+            {{ employee?.matricule }}
+          </li>
+          <li class="list-group-item">
+            <i class=""></i>
+            {{ employee?.email }}
+          </li>
+        </ul>
+        <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+            <a
+              [routerLink]="['/employees', employee.id]"
+              class="btn btn-secondary tooltips"
+              data-placement="top"
+              data-original-title="View"
+              ><i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
+            <a
+              (click)="openModal(employee, 'edit')"
+              class="btn btn-secondary tooltips"
+              data-placement="top"
+              data-original-title="Edit"
+              ><i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+            <a
+              (click)="openModal(employee, 'delete', $event)"
+              class="btn btn-secondary tooltips"
+              data-placement="top"
+              data-original-title="Delete"
+              ><i class="fa fa-times"></i
+            ></a>
+          </div>
+        </div>
+      </div> -->
+
+  <!-- employee-card -->
+
+  <!-- <div class="author">
+                        <div class="block block-one"></div>
+                        <div class="block block-two"></div>
+                        <div class="block block-three"></div>
+                        <div class="block block-four"></div>
+                        <a href="javascript:void(0)"> -->
+
+  <div class="employees-list">
+    <div *ngFor="let employee of employees">
+      <div class="container" style="margin: -86px" auto>
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <a href="javascript:void(0)">
+              <div class="card" style="width: 18rem">
+                <img
+                  class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXlbMgzYw0M94bT-Sp1UGBBHLj60mz3wVtWQ&usqp=CAU"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <h5>{{ employee?.firstName }} {{ employee?.lastName }}</h5>
+                  <p class="m-0">{{ employee?.grade }}</p>
+
+                  <div class="card-footer">
+                    <p-speedDial
+                      [model]="getItems(employee)"
+                      radius="80"
+                      type="quarter-circle"
+                      radius="120"
+                      direction="up-right"
+                      buttonClassName="p-button-warning"
+                    ></p-speedDial>
+                  </div>
+                  <!-- End-employee-Card -->
+
+                  <!-- employee form -->
+
+                  <p-dialog
+                    header="Edit employee"
+                    [(visible)]="displayEditDialog"
+                    [style]="{ width: '50vw' }"
+                    [baseZIndex]="10000"
+                  >
+                    <form [formGroup]="employeeForm" class="employee-form">
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="firstName"
+                          name="firstName"
+                          class="form-control"
+                          id="firstName"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="firstName">First Name</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="lastName"
+                          name="lastName"
+                          class="form-control"
+                          id="lastName"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="lastName">Last Name</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="matricule"
+                          name="matricule"
+                          class="form-control"
+                          id="matricule"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="matricule">Matricule</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="grade"
+                          name="grade"
+                          class="form-control"
+                          id="grade"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="grade">Grade</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="email"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="grade">Email</label>
+                      </div>
+                    </form>
+
+                    <ng-template pTemplate="footer">
+                      <p-button
+                        icon="pi pi-check"
+                        (click)="editEmployee()"
+                        label="Edit"
+                      ></p-button>
+
+                      <p-button
+                        icon="pi pi-times"
+                        (click)="displayDialog = false"
+                        label="No"
+                        styleClass="p-button-text"
+                      ></p-button>
+                    </ng-template>
+                  </p-dialog>
+                  <p-confirmPopup></p-confirmPopup>
+                  <p-toast></p-toast>
+                  <p-dialog
+                    header="Add Employee"
+                    [(visible)]="displayAddDialog"
+                    [style]="{ width: '50vw' }"
+                    [baseZIndex]="10000"
+                  >
+                    <form [formGroup]="employeeForm" class="employee-form">
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="firstName"
+                          name="firstName"
+                          class="form-control"
+                          id="firstName"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="firstName">First Name</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="lastName"
+                          name="lastName"
+                          class="form-control"
+                          id="lastName"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="lastName">Last Name</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="matricule"
+                          name="matricule"
+                          class="form-control"
+                          id="matricule"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="matricule">Matricule</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="grade"
+                          name="grade"
+                          class="form-control"
+                          id="grade"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="grade">Grade</label>
+                      </div>
+                      <div class="form-group p-float-label employee-form-item">
+                        <input
+                          type="text"
+                          formControlName="email"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                          aria-describedby="emailHelp"
+                          pInputText
+                        />
+                        <label for="firstName">Email</label>
+                      </div>
+                    </form>
+
+                    <ng-template pTemplate="footer">
+                      <p-button
+                        icon="pi pi-check"
+                        (click)="createEmployee()"
+                        label="Add"
+                      ></p-button>
+                      <p-button
+                        icon="pi pi-times"
+                        (click)="displayaddDialog = false"
+                        label="Cancel"
+                        styleClass="p-button-text"
+                      ></p-button>
+                    </ng-template>
+                  </p-dialog>
+                </div></div
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
