@@ -5,15 +5,16 @@ import {
   Router,
 } from "@angular/router";
 import { Avatar } from "primeng/avatar";
+import { DialogService } from "primeng/dynamicdialog";
 import { Employee } from "src/app/models/employee.model";
 import { EmployeesService } from "src/app/services/employees.service";
+import { MapComponent } from "../../map/map.component";
 
 @Component({
   selector: "app-view-employee",
   templateUrl: "./view-employee.component.html",
-  template: ` <div [ngStyle]="getMyStyles()" class="skelt-load loader"></div> `,
-
   styleUrls: ["./view-employee.component.scss"],
+  providers: [DialogService],
 })
 export class ViewEmployeeComponent implements OnInit {
   @Input() Cwidth;
@@ -22,11 +23,13 @@ export class ViewEmployeeComponent implements OnInit {
 
   employeeId: number;
   employee: Employee;
+  showLocationDialog = false;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private employeeService: EmployeesService
+    private employeeService: EmployeesService,
+    public dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +54,10 @@ export class ViewEmployeeComponent implements OnInit {
   }
 
   viewLocation(location) {
-    this.router.navigate(["maps"]);
+    // this.router.navigate(["maps"]);
+    const ref = this.dialogService.open(MapComponent, {
+      header: "View Location",
+      width: "70%",
+    });
   }
 }

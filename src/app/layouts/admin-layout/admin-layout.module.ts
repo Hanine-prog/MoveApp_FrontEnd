@@ -15,6 +15,11 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { ViewEmployeeComponent } from "src/app/pages/employees/view-employee/view-employee.component";
+import { DialogModule } from "primeng/dialog";
+import { TabViewModule } from "primeng/tabview";
+import { ButtonModule } from "primeng/button";
+import { DynamicDialogModule } from "primeng/dynamicdialog";
 
 @NgModule({
   imports: [
@@ -23,6 +28,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     FormsModule,
     HttpClientModule,
     NgbModule,
+    TabViewModule,
+    DialogModule,
+    ButtonModule,
+    DynamicDialogModule,
   ],
   declarations: [
     DashboardComponent,
@@ -31,6 +40,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     IconsComponent,
     NotificationsComponent,
     MapComponent,
+    ViewEmployeeComponent,
     // RtlComponent
   ],
 })

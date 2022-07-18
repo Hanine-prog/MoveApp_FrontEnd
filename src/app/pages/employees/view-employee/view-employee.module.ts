@@ -5,15 +5,22 @@ import { ViewEmployeeComponent } from "./view-employee.component";
 import { ButtonModule } from "primeng/button";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TabViewModule } from "primeng/tabview";
+import { DialogModule } from "primeng/dialog";
+import { MapComponent } from "../../map/map.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 @NgModule({
-  declarations: [ViewEmployeeComponent],
+  declarations: [],
   imports: [
     CommonModule,
     SkeletonModule,
     ButtonModule,
     NgbModule,
     TabViewModule,
+    DialogModule,
+    BrowserModule,
+    BrowserAnimationsModule,
   ],
-  exports: [ViewEmployeeComponent],
+  exports: [],
 })
 export class SeletonLoaderModule {}
