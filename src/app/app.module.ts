@@ -40,7 +40,7 @@ import { TabViewModule } from "primeng/tabview";
 import { EmployeeListComponent } from "./pages/employee-list/employee-list.component";
 import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
-import { MapsComponent } from "./pages/maps/maps.component";
+import { MapComponent } from "./pages/map/map.component";
 
 @NgModule({
   imports: [
