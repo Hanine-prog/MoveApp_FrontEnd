@@ -42,7 +42,7 @@ import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
 import { MapComponent } from "./pages/map/map.component";
 import { KeycloakAngularModule, KeycloakService } from "keycloak-angular";
-import { initializeKeycloak } from "./pages/keycloak/app.init";
+// import { initializeKeycloak } from "./pages/keycloak/app.init";
 
 @NgModule({
   imports: [
@@ -87,12 +87,12 @@ import { initializeKeycloak } from "./pages/keycloak/app.init";
     EmployeeListComponent,
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService],
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializeKeycloak,
+    //   multi: true,
+    //   deps: [KeycloakService],
+    // },
     ConfirmationService,
     MessageService,
   ],
