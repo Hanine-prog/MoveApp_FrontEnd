@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import {
   ConfirmationService,
@@ -24,12 +24,12 @@ export class EmployeeListComponent implements OnInit {
   public employees: Employee[];
   employeeId: number;
 
-  employeeForm = new FormGroup({
-    firstName: new FormControl(""),
-    lastName: new FormControl(""),
-    grade: new FormControl(""),
-    matricule: new FormControl(""),
-    email: new FormControl(""),
+  employeeForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl(""),
+    lastName: new UntypedFormControl(""),
+    grade: new UntypedFormControl(""),
+    matricule: new UntypedFormControl(""),
+    email: new UntypedFormControl(""),
   });
 
   constructor(

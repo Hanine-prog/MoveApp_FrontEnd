@@ -1,7 +1,7 @@
 import { ConfirmPopupModule } from "primeng/confirmpopup";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit, NgModule, Injectable } from "@angular/core";
-import { FormControl, FormGroup, NgForm } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, NgForm } from "@angular/forms";
 import { SelectItemGroup } from "primeng/api";
 
 import {
@@ -43,11 +43,11 @@ export class DeplacementComponent implements OnInit {
   public deplacements: Deplacement[];
   deplacementId: number;
 
-  deplacementForm = new FormGroup({
-    startingPoint: new FormControl(""),
-    arrivalPoint: new FormControl(""),
-    status: new FormControl(""),
-    meansOfTransport: new FormControl(""),
+  deplacementForm = new UntypedFormGroup({
+    startingPoint: new UntypedFormControl(""),
+    arrivalPoint: new UntypedFormControl(""),
+    status: new UntypedFormControl(""),
+    meansOfTransport: new UntypedFormControl(""),
   });
 
   cities: City[];

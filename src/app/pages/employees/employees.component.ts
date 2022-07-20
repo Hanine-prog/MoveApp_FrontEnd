@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit, NgModule, Injectable } from "@angular/core";
-import { FormControl, FormGroup, NgForm } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, NgForm } from "@angular/forms";
 
 import { Employee } from "src/app/models/employee.model";
 import { EmployeesService } from "src/app/services/employees.service";
@@ -28,12 +28,12 @@ export class EmployeesComponent implements OnInit {
   public employees: Employee[];
   employeeId: number;
 
-  employeeForm = new FormGroup({
-    firstName: new FormControl(""),
-    lastName: new FormControl(""),
-    grade: new FormControl(""),
-    matricule: new FormControl(""),
-    email: new FormControl(""),
+  employeeForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl(""),
+    lastName: new UntypedFormControl(""),
+    grade: new UntypedFormControl(""),
+    matricule: new UntypedFormControl(""),
+    email: new UntypedFormControl(""),
   });
 
   constructor(
