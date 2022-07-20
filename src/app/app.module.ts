@@ -6,7 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from "ngx-toastr";
 import { DialogModule } from "primeng/dialog";
-import { NgModule } from "@angular/core";
+import { APP_INITIALIZER, NgModule } from "@angular/core";
 
 import { ToastModule } from "primeng/toast";
 import { ButtonModule } from "primeng/button";
@@ -40,7 +40,9 @@ import { TabViewModule } from "primeng/tabview";
 import { EmployeeListComponent } from "./pages/employee-list/employee-list.component";
 import { ToolbarModule } from "primeng/toolbar";
 import { TableModule } from "primeng/table";
-import { MapsComponent } from "./pages/maps/maps.component";
+import { MapComponent } from "./pages/map/map.component";
+import { KeycloakAngularModule, KeycloakService } from "keycloak-angular";
+import { initializeKeycloak } from "./pages/keycloak/app.init";
 
 @NgModule({
   imports: [
@@ -69,6 +71,7 @@ import { MapsComponent } from "./pages/maps/maps.component";
     TabViewModule,
     ToolbarModule,
     TableModule,
+    KeycloakAngularModule,
 
     ToastrModule.forRoot(),
   ],
@@ -83,7 +86,16 @@ import { MapsComponent } from "./pages/maps/maps.component";
     DeplacementComponent,
     EmployeeListComponent,
   ],
-  providers: [ConfirmationService, MessageService],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+    ConfirmationService,
+    MessageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
