@@ -9,6 +9,7 @@
       "grade": "Team Leader",
       "image": "oussamagabtni.jpg"
     },
+
     {
       "id": 26,
       "firstName": "hanine",
@@ -16,16 +17,7 @@
       "email": "hanine.hammami@esprit.tn",
       "matricule": "012543",
       "grade": "product owner",
-      "image": "haninehammami.jpg"
-    },
-    {
-      "id": 31,
-      "firstName": "KHALIL",
-      "lastName": "khaled",
-      "email": "hammamihanine6@gmail.com",
-      "matricule": "21548",
-      "grade": "Team leader",
-      "image": "khalilkhaled.jpg",
+      "image": "haninehammami.jpg",
       "deplacements": [
         {
           "id": 3,
