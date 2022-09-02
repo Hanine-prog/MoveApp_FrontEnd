@@ -46,7 +46,7 @@ export class DeplacementComponent implements OnInit {
   deplacementForm = new FormGroup({
     startingPoint: new FormControl(""),
     arrivalPoint: new FormControl(""),
-    status: new FormControl(""),
+    statuts: new FormControl(""),
     meansOfTransport: new FormControl(""),
   });
 

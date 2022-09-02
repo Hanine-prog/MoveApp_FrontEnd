@@ -15,20 +15,20 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-chart-pie-36",
     class: "",
   },
-  {
-    path: "/Profile",
-    title: "profile",
-    rtlTitle: "",
-    icon: "icon-atom",
-    class: "",
-  },
-  {
-    path: "/maps",
-    title: "Maps",
-    rtlTitle: "خرائط",
-    icon: "icon-pin",
-    class: "",
-  },
+  // {
+  //   path: "/Profile",
+  //   title: "profile",
+  //   rtlTitle: "",
+  //   icon: "icon-atom",
+  //   class: "",
+  // },
+  // {
+  //   path: "/maps",
+  //   title: "Maps",
+  //   rtlTitle: "خرائط",
+  //   icon: "icon-pin",
+  //   class: "",
+  // },
   // {
   //   path: "/notifications",
   //   title: "Notifications",
@@ -44,13 +44,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
 
-  {
-    path: "/user",
-    title: "User Profile",
-    rtlTitle: "ملف تعريفي للمستخدم",
-    icon: "icon-single-02",
-    class: "",
-  },
+  // {
+  //   path: "/user",
+  //   title: "User Profile",
+  //   rtlTitle: "ملف تعريفي للمستخدم",
+  //   icon: "icon-single-02",
+  //   class: "",
+  // },
   // {
   //   path: "/tables",
   //   title: "Table List",
@@ -60,7 +60,7 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "/deplacements",
-    title: "Deplacement",
+    title: "Trips",
     rtlTitle: "",
     icon: "icon-align-center",
     class: "",
